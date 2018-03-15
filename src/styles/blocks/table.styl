@@ -1,0 +1,120 @@
+.ReactTable
+	border none!important
+	font-size 1.4rem
+	background-color $BG!important
+	.-loading
+		bottom: 74px!important;
+		top: 46px!important;
+	.-header
+		box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+		background-color: #122470;
+		color: white
+	.pagination-bottom
+		background-color: #f3f3f3;
+		.-pagination
+			padding-top: 2rem;
+			box-shadow none
+			background: $BG
+			justify-content: center;
+			border-top none
+			.-previous, .-next
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 0%
+			.-center
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: 20%
+			.-btn
+				width: 33px;
+				height: 33px;
+				box-shadow: 0 6px 15px rgba(71, 106, 252, 0.4);
+				border-radius: 3px;
+				background-color: #476afc;
+	.rt-thead
+		line-height 1em
+		
+		.rt-resizable-header
+			display flex
+			height 46px
+			align-items center
+			padding 0
+			position relative
+			t()
+			
+			&-content
+				padding 0 $pad * 2
+				position relative
+				top -1px
+			
+			&:after
+				tri(#122470 + 40%, 2px, 90deg)
+				position absolute
+				right 25px
+				top 0
+				bottom 0
+				margin auto
+				transform translateY(-3px) rotate(135deg)
+				transition 0.2s
+			
+			&.-sort-desc
+				box-shadow: inset 0 -3px 0 0 #122470 + 20%
+				
+				&:after
+					transform translateY(3px) rotate(315deg)
+			
+			&.-sort-asc
+				box-shadow: inset 0 3px 0 0 #122470 + 40%
+		
+		.rt-tr
+			color #d6cbff
+		
+		.rt-resizer
+			border-right: 1px solid #122470 - 10%
+			right -1px
+	
+	.rt-table
+		overflow hidden
+		box-shadow: 0 9px 20px rgba(113, 110, 118, 0.2);
+		margin-bottom: 2.5rem;
+		background-color #ffffff
+		border-radius: 0 0 5px 5px;
+	.rt-tbody
+		.rt-tr
+			&.-odd
+				background-color rgba(71, 106, 252, 0.05)
+				
+			&:hover
+				background-color rgba(71, 106, 252, 0.15)
+		.rt-td
+			padding-left 1rem
+			padding-right 1rem
+			&__name,
+			.description
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+.promo,
+.compliance
+	&__filter
+		background-image linear-gradient(232deg, #7451f6 0%, #7451f6 40%, #1fe8eb 100%);
+		border-radius 5px 5px 0 0
+		width 100%
+		height 7rem
+		position relative
+		overflow hidden
+		flex()
+		align-items center
+		padding 0 $pad * 2
+		color #fff
+		
+		&:before
+			content ''
+			color rgba(255, 255, 255, 0.3)
+			font-size 10rem
+			line-height 1em
+			font-weight 600
+			position absolute
+			z-index 1
+			top -18px
+			left -6px

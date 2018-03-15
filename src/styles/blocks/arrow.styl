@@ -1,0 +1,19 @@
+.arrow
+	tri(#ffffff + 40%, 3px, 90deg)
+	top 0
+	bottom 0
+	margin auto
+	transition 0.2s
+	&_left
+		transform  translateX(2px) rotate(225deg)
+	&_right
+		transform translateX(-2px) rotate(45deg)
+	&_down
+		tri(#ffffff + 40%, 4px, 90deg)
+		border-color: rgb(224, 224, 224);
+		transform: rotate(135deg);
+		cursor pointer
+		t()
+		&:hover
+			transform scale(1.1) rotate(135deg);
+			border-color: grey

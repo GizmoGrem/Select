@@ -1,0 +1,94 @@
+.Select
+	position relative
+	top: 200px;
+	width min-content
+	display: flex;
+	flex-direction: column;
+	&_close
+		&:after
+			transform: rotateX(0deg);
+	&_open
+		&:after
+			transform: rotateX(180deg);
+	&_selected
+		.Select__label
+			&_isUP
+				display block
+	&_openWithValue
+		.Select__label
+			&_isUP
+				display none
+	&:after
+		content: "";
+		position: absolute;
+		top: 22px;
+		right: 25px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 6px 5px 0;
+		border-color: #82848e transparent transparent;
+		transition: transform .3s ease-out
+	&__label
+		top: 15px;
+		left: 10px;
+		position: relative;
+		background white
+		z-index 0
+		width: max-content
+		padding 0 5px
+		transition 0.3s
+		&_open
+			transition 0.3s
+			transform translateY(-25px) scale(0.9)
+			z-index 3
+		&_isUP
+			display none
+	&__input
+		text-overflow: ellipsis;
+		border-radius: 5px;
+		border: 1px solid gray;
+		height: 50px;
+		width: 250px;
+		padding: 0 40px 0px 20px;
+		border-color: grey;
+		&_isDOWN
+			border-bottom-left-radius 0
+			border-bottom-right-radius 0
+		&_isUP
+			border-top-left-radius 0
+			border-top-right-radius 0
+	&__list
+		position absolute
+		width: 250px;
+		//overflow scroll!important
+		z-index: 3;
+		background: white;
+		&_isUP
+			border-top-left-radius 5px
+			border-top-right-radius 5px
+			border: solid grey;
+			border-width: 1px 1px 0 1px;
+			bottom 50px
+			transform-origin: bottom ;
+		&_isDOWN
+			top: 100%;
+			border: solid grey;
+			transform-origin: top;
+			border-width: 0 1px 1px 1px;
+			border-bottom-left-radius 5px
+			border-bottom-right-radius 5px
+		&_hasScroll
+			overflow scroll!important
+	&__item
+		display: flex;
+		align-items: center;
+		padding 5px 15px
+		width: 250px;
+		&:focus
+			background: $focus;
+		&:hover
+			background: $focus;
+		span
+			.redBlock
+				color red

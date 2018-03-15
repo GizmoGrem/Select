@@ -1,0 +1,54 @@
+.PageHeader
+	margin-bottom 3.4rem
+	t()
+	&__list
+		display: grid;
+		grid-template-columns: 40% 50%
+		align-items center
+		+below(500px)
+			grid-template-columns: 100%
+		
+		.HeaderItem
+			font-family $secondary-font
+			text-align center
+			color: #545759;
+			font-size: 1.4rem;
+			font-weight: 400;
+			&_wrapper
+				display: grid;
+				grid-template-columns: 30% 30% 30%
+			&__text
+				width:100%
+				color: #535353;
+				font-family: $secondary-font
+				font-size: 1.4rem;
+				font-weight: 400;
+				span
+					border-bottom none
+				&-main
+					color: #484848
+					font-family $head-font
+					font-size: 2.3rem;
+					font-weight: 700;
+					text-transform: uppercase;
+					text-align left
+					+below(500px)
+						text-align center
+					span
+						border-bottom none
+			&_img
+				height: 2.6rem;
+				margin-left: 20px
+		.selected
+			t()
+			.HeaderItem
+				t()
+				text-align center
+				&__text
+					width:100%
+					color: #000
+					span
+						border-bottom 4px solid black
+.Header
+	&_time
+		margin-left: 20px

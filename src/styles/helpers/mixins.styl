@@ -1,0 +1,189 @@
+// columns
+
+$col = 8.33333333%
+
+col(num)
+  width $col * num
+  padding-left 12px
+  padding-right 12px
+
+  +to-width(480px)
+    padding-left 8px
+    padding-right 8px
+
+
+// position
+
+flex()
+  display flex
+  flex-wrap wrap
+
+abs-xy()
+  margin auto
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%,-50%)
+
+abs-y()
+  margin auto
+  position absolute
+  top 50%
+  transform translate(0, -50%)
+
+abs-x()
+  margin auto
+  position absolute
+  left 50%
+  transform translate( -50%, 0)
+
+block-y()
+  margin-left auto
+  margin-right auto
+
+// other
+animate(num)
+	opacity 1!important
+	animation: animation 3000ms (num)ms ease-out both;
+t()
+  transition 0.3s
+
+// Burger Menu
+
+tri(color, size, deg)
+	content ''
+	position relative
+	display inline-block
+	width size * 4
+	height size * 4
+	border-right size solid color
+	border-top size solid color
+	transform rotate(deg)
+
+tri-c(color, size)
+  content ''
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 size size size
+  border-color: transparent transparent color transparent;
+
+hamburger(color, width, height)
+
+    .hamburger
+      font-size 0
+      border 0
+      background-color transparent
+      cursor pointer
+      transition-timing-function linear
+      transition-property opacity
+      position: relative;
+      display: inline-block;
+      width: width
+      height: 24px;
+
+      &:hover
+
+        .hamburger__inner
+          background-color color - 15%
+
+          &:before
+          &:after
+            background-color: color - 15%
+
+      &.active
+
+        .hamburger__inner
+          transform: rotate(45deg);
+          transition-delay: 0.14s;
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          &:before
+            top: 0;
+            opacity: 0;
+            transition: top 0.1s ease, opacity 0.1s 0.14s ease;
+
+          &:after
+            bottom: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.1s ease, transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &__inner
+        top: 50%;
+        display: block;
+        margin-top: -2px;
+        transition-duration: 0.1s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        background-color: color;
+        position: absolute;
+        width: width
+        height: height
+        transition-property: transform;
+        border-radius: 4px;
+
+        &:after
+        &:before
+          content ''
+          position: absolute;
+          width: width
+          height: height
+          transition-timing-function: ease;
+          transition-duration: .15s;
+          transition-property: transform;
+          border-radius: 4px;
+          background-color: color;
+          left: 0;
+
+        &:before
+          top: -8px;
+          transition: top 0.1s 0.14s ease, opacity 0.1s ease;
+
+        &:after
+          bottom: -8px;
+          transition: bottom 0.1s 0.14s ease, transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+
+// adaptive images
+bg(name, type)
+	name = '/assets/images' + name
+	+retina()
+		+below(mobile-portrait)
+			background  url(name + '-320px.' + type)
+			background url(name + '-320px@2x.' + type)
+		
+		+between(mobile-landscape, tablet-landscape)
+			background  url(name + '-480px.' + type)
+			background url(name + '-480px@2x.' + type)
+		
+		+between(tablet-desktop, desktop)
+			background  url(name + '-960px.' + type)
+			background url(name + '-960px@2x.' + type)
+		
+		+at(desktop-large)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-1440px@.' + type)
+		
+		+above(desktop-retina)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-1920px.' + type)
+	
+	+density(1)
+		+below(mobile-portrait)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-320px@2x.' + type)
+		
+		+between(mobile-landscape, tablet-landscape)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-480px@2x.' + type)
+		
+		+between(tablet-desktop, desktop)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-960px@2x.' + type)
+		
+		+at(desktop-large)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-1440px.' + type)
+		
+		+above(desktop-retina)
+			background  url(name + '@fallback.' + type)
+			background url(name + '-1920px.' + type)

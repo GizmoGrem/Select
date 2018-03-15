@@ -1,0 +1,110 @@
+.loading
+	&:after
+		z-index: 10
+		content ''
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background $BG
+	&:before
+		z-index: 12
+		content: '';
+		box-sizing: border-box;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 30px;
+		height: 30px;
+		background-color $BG
+		margin-top: -15px;
+		margin-left: -15px;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		border-top-color: #7953fc;
+		animation: spinner .6s linear infinite;
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+
+.page.loading
+	height 100vh
+
+.page__fill.loading
+	height 100vh
+.block__user.loading
+	height 100%
+	&:before
+		z-index: 12;
+		content: '';
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		position: absolute;
+		/* top: 50%; */
+		/* left: 50%; */
+		width: 30px;
+		height: 30px;
+		background-color: #fcfcfd;
+		/* margin: auto; */
+		/* margin-top: 20%; */
+		margin-left: 44%;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		border-top-color: #7953fc;
+		-webkit-animation: spinner 0.6s linear infinite;
+		animation: spinner 0.6s linear infinite;
+
+.block.loading
+	height 100%
+	&:before
+		z-index: 12;
+		content: '';
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		position: absolute;
+		top: 50%;
+		/* left: 50%; */
+		width: 30px;
+		height: 30px;
+		background-color: #fcfcfd;
+		/* margin: auto; */
+		margin-top: 38%;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		border-top-color: #7953fc;
+		-webkit-animation: spinner 0.6s linear infinite;
+		animation: spinner 0.6s linear infinite;
+	&:after
+		top 79%
+		
+.block__card.loading
+	&:before
+		z-index: 12;
+		content: '';
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		position: absolute;
+		/* top: 50%; */
+		/* left: 50%; */
+		width: 30px;
+		height: 30px;
+		background-color: #fcfcfd;
+		/* margin: auto; */
+		/* margin-top: 20%; */
+		margin-left: 44%;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		border-top-color: #7953fc;
+		-webkit-animation: spinner 0.6s linear infinite;
+		animation: spinner 0.6s linear infinite;
+
+.fadeIn-appear {
+	opacity: 0.01;
+}
+
+.fadeIn-appear.fadeIn-appear-active {
+	opacity: 1;
+	transition: opacity .3s ease-in;
+}

@@ -1,0 +1,42 @@
+// Тут подключаются !!!только!!! миксины и переменные
+
+// брейкпоинты со смещением, если всегда открыта форма
+asideWidth = 310px
+s600 = 600px
+s840 = 840px + asideWidth
+s960 = 960px + asideWidth
+s1280 = 1280px + asideWidth
+s1440 = 1440px + asideWidth
+s1920 = 1920px + asideWidth
+
+
+t600 = 600px
+t840 = 840px
+t960 = 960px
+t1280 = 1280px
+t1440 = 1440px
+t1920 = 1920px
+
+asideBreak = 0 320px 480px s600 s840 s960 s1280 s1440 s1920
+normalBreak = 0 320px 480px t600 t840 t960 t1280 t1440 t1920
+
+//пример использование rupture брэйкпоинтов
+//rupture.scale = 0 320px 480px 768px  1024px 1440px 1824px
+//rupture.scale-names = 'mobile' 'mobile-land' 'tablet' 'tablet-land' 'desktop' 'desktop-wide' 'desktop-retina'
+scale = normalBreak
+scale-names = 'small' 'mobile-portrait' 'mobile-landscape' 'tablet-portrait' 'tablet-landscape' 'tablet-desktop' 'desktop' 'desktop-large' 'desktop-retina'
+anti-overlap = -1px
+
+//TODO переписать!
+tablet = 'tablet'
+mobile-land = 'mobile-land'
+mobile = 'mobile'
+tablet-land ='tablet-land'
+desktop = 'desktop'
+desktop-wide = 'desktop-wide'
+desktop-retina = 'desktop-retina'
+
+
+@import "./helpers/mixins.styl"
+@import "./helpers/vars.styl"
+@import "./base/fonts.styl"

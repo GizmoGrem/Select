@@ -1,0 +1,78 @@
+
+.grid-layout
+	opacity: 1;
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+	grid-gap: 29px 20px;
+	grid-auto-rows: minmax(103px,auto);
+	grid-auto-flow: dense;
+	+at(1440px)
+		grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+	
+	+above(1460px)
+		grid-template-columns repeat(auto-fill, minmax(400px, 1fr))
+		grid-gap 29px 44px
+	+below(1081px)
+		grid-template-columns: repeat(auto-fill,minmax(210px,1fr));
+.grid-item
+	//opacity 0
+	font-weight bold
+	text-transform uppercase
+	color #929796
+	background-color $blockBG
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+.span-1
+	padding: 1.8rem
+	grid-column-end span 1
+	grid-row-end span 1
+	+above(1460px)
+		padding: 40px 33px;
+.span-2
+	padding: 1.8rem;
+	grid-column-end span 1
+	grid-row-end span 1
+	+above(1460px)
+		padding: 40px 33px;
+	
+.span-3
+	padding 0
+	grid-column-end span 2
+	grid-row-end span 1
+	box-shadow: none
+	background-color transparent
+.span-3-horizontal
+	padding 0
+	grid-column-end span 3
+	grid-row-end span 1
+	box-shadow: none
+	background-color transparent
+
+.span-4
+	grid-column-end span 4
+	grid-row-end span 1
+	box-shadow: none
+	background-color transparent
+
+.span-5
+	padding: 1.8rem
+	grid-column-end span 1
+	grid-row-end span 2
+	+above(1460px)
+		padding: 40px 33px;
+	.item-block
+		&-second
+			margin-top 1.7rem
+			
+.span-6
+	padding: 23px 18px;
+	grid-column-end span 1
+	grid-row-end span 3
+	+above(1460px)
+		padding: 40px 33px;
+.span-7
+	padding: 23px 18px;
+	grid-column-end span 4
+	grid-row-end span 1
+	box-shadow: none
+	background-color transparent

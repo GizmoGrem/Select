@@ -1,0 +1,45 @@
+@import "vars"
+@import "mixins"
+@import "fonts"
+$gilroyFontFolder = '../public/fonts/'
+@font-face {
+	font-family: 'Gilroy-ExtraBold';
+	src: url($gilroyFontFolder+'Gilroy-ExtraBold.otf');
+}
+@font-face {
+	font-family: 'Gilroy-Light';
+	src: url($gilroyFontFolder+'Gilroy-Light.otf');
+}
+html
+body
+	font-size 14px
+	line-height 1.4
+	letter-spacing 0
+	color #2b303b
+	min-height: 1000px
+	margin-left auto
+	margin-right auto
+	+below(414px)
+		max-width 414px
+	+above(1080px)
+		min-width 640px
+		font-size 14px
+body
+	padding: 3rem;
+	+above(1460px)
+		padding: 3rem;
+
+section
+	font-size 1.6rem
+
+a
+	font-size 1.6rem
+	color $blue
+	text-align start
+
+li
+	list-style none
+	
+.App__wrapper
+	margin auto
+	max-width 1440px

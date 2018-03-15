@@ -1,0 +1,35 @@
+.SelectMobile
+	&:after
+		content: "";
+		position: relative;
+		top: 12px;
+		right: 25px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 6px 5px 0;
+		border-color: #82848e transparent transparent;
+		transition: transform .3s ease-out
+	&__wrapper
+		height 0
+	&__select
+		background transparent
+		border-radius: 5px;
+		border-width: 1px;
+		border-color: grey;
+		height: 50px;
+		width: 250px;
+		padding 0 20px
+	&__label
+		display none
+		position: relative;
+		background white
+		z-index 0
+		width: max-content
+		padding 0 5px
+		transition 0.3s
+		&_selected
+			display block
+			transition 0.3s
+			transform translateY(-10px) scale(0.9)
+			z-index 3
