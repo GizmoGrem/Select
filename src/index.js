@@ -9,10 +9,10 @@ import './styles/common.styl';
 const store = configureStore();
 
 render(
-	<AppContainer>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</AppContainer>,
-	document.getElementById('root')
+  <AppContainer>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </AppContainer>,
+  document.getElementById('root')
 );

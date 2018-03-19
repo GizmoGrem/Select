@@ -30,45 +30,45 @@
  */
 
 const flatten = (data) => {
-	if (!data) return [];
-	
-	if (typeof data === 'string' || typeof data === 'number') {
-		return [data];
-	} else if (!Array.isArray(data)) {
-		if (Object.prototype.hasOwnProperty.call(data, 'toString')) {
-			return [data];
-		}
-		
-		return Object.keys(data).filter(i => data[i]);
-	}
-	return data;
+  if ( !data ) return [];
+
+  if ( typeof data === 'string' || typeof data === 'number' ) {
+    return [data];
+  } else if ( !Array.isArray(data) ) {
+    if ( Object.prototype.hasOwnProperty.call(data, 'toString') ) {
+      return [data];
+    }
+
+    return Object.keys(data).filter(i => data[i]);
+  }
+  return data;
 };
 
 const chain = (stored) => ({
-	toString() {
-		return stored;
-	},
-	add(data) {
-		return chain([stored, ...flatten(data)].join(' '));
-	}
+  toString() {
+    return stored;
+  },
+  add(data) {
+    return chain([stored, ...flatten(data)].join(' '));
+  }
 });
 
 const cn = (block) => {
-	const fn = (elem, mod) => {
-		const cl = block + (elem ? '__' + elem : '');
-		
-		if (!mod) {
-			return chain(cl);
-		}
-		
-		return chain([cl, ...flatten(mod).map(v => cl + '_' + v)].join(' '));
-	};
-	
-	fn.mod = (mod) => {
-		return fn(null, mod);
-	};
-	
-	return Object.assign(fn, chain(block));
+  const fn = (elem, mod) => {
+    const cl = block + (elem ? '__' + elem : '');
+
+    if ( !mod ) {
+      return chain(cl);
+    }
+
+    return chain([cl, ...flatten(mod).map(v => cl + '_' + v)].join(' '));
+  };
+
+  fn.mod = (mod) => {
+    return fn(null, mod);
+  };
+
+  return Object.assign(fn, chain(block));
 };
 
 export default cn;
