@@ -45,6 +45,7 @@
 		&_isUP
 			display none
 	&__input
+		background: transparent;
 		text-overflow: ellipsis;
 		border-radius: 5px;
 		border: 1px solid gray;
@@ -61,7 +62,6 @@
 	&__list
 		position absolute
 		width: 250px;
-		//overflow scroll!important
 		z-index: 3;
 		background: white;
 		&_isUP
@@ -88,7 +88,7 @@
 		&:focus
 			background: $focus;
 		&:hover
-			background: $focus;
+			background: $hover
 		span
 			.redBlock
 				color red

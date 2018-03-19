@@ -57,6 +57,7 @@ class WebSelect extends Component {
     }
   };
   preventOutsideScroll = (e) => {
+
     if ( !e.path.includes(this.Collapse) ) {
       document.body.style.overflow = 'hidden';
     }
@@ -106,7 +107,6 @@ class WebSelect extends Component {
       this.setState({
         hasSelectedValue: true,
       }, () => this.toggleOpen({value}));
-
     } else if ( selectedNoResult ) {
 
       this.setState({
@@ -117,7 +117,7 @@ class WebSelect extends Component {
 
   onKeyDown = ({ keyCode }) => {
     const { active} = this.state;
-    const {items,value}=this.props;
+    const { items, value } = this.props;
     const isUp = (keyCode === UP);
     const isDown = (keyCode === DOWN);
     const ItemsPositions = getItems(keyCode, active);
@@ -132,7 +132,8 @@ class WebSelect extends Component {
       this.setState(
         { active: ItemsPositions.NextItem }, () => {
           this.refs[FocusedItem].focus();
-        });
+        }
+      );
     }
   };
 
@@ -186,7 +187,8 @@ class WebSelect extends Component {
     const variableValue = hasSelectedValue?value:inputValue;
 
     return (
-      <div className={s('',HeadSelectClass)}>
+      <div
+        className={s('', HeadSelectClass)}>
         <InputWithSearch
           refSelect={(ref) => {this.Select = ref}}
           refInput={(input) => {this.textInput = input}}

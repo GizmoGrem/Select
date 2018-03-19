@@ -4,6 +4,7 @@
   "description": "Webpack 3 React, Redux and Stylus boilerplate",
   "private": true,
   "scripts": {
+    "dev": "node server.js",
     "start": "clear && webpack-dev-server",
     "clean": "rimraf build",
     "lint": "eslint src || true",
