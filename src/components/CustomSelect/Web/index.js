@@ -32,12 +32,10 @@ class WebSelect extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutside, false);
-    document.removeEventListener('keyup', this.preventOutsideUpScroll, false);
     document.removeEventListener('keydown', this.preventOutsideScroll, false);
   };
 
   componentWillMount() {
-    document.addEventListener('keyup', this.preventOutsideUpScroll, false);
     document.addEventListener('keydown', this.preventOutsideScroll, false);
     document.addEventListener('click', this.handleClickOutside, false);
   };
@@ -56,18 +54,15 @@ class WebSelect extends Component {
       }
     }
   };
-  preventOutsideScroll = (e) => {
+  preventOutsideScroll = (event) => {
+    const { keyCode } = event;
+    const isBlockScroll = (keyCode === UP)  || (keyCode === DOWN);
 
-    if ( !e.path.includes(this.Collapse) ) {
-      document.body.style.overflow = 'hidden';
+    if (isBlockScroll ) {
+      event.preventDefault()
     }
   };
 
-  preventOutsideUpScroll = (e) => {
-    if ( !e.path.includes(this.Collapse) ) {
-      document.body.style.overflow = 'scroll';
-    }
-  };
 
   toggleOpen = (value) => {
     const { isOpened, disabled } = this.state;
@@ -106,7 +101,8 @@ class WebSelect extends Component {
 
       this.setState({
         hasSelectedValue: true,
-      }, () => this.toggleOpen({value}));
+      }, () => this.toggleOpen({ value }));
+
     } else if ( selectedNoResult ) {
 
       this.setState({
