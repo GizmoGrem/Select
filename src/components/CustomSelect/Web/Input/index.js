@@ -11,8 +11,7 @@ const s = cn('Select');
 const InputWithSearch = (props) => {
   const {
     value, isOpened, disabled,
-    dropDownDirection, placeholder,
-    onKeyDown, onChange, onClick,
+    dropDownDirection, placeholder,onChange, onClick,
     refSelect, refInput
   } = props;
 
@@ -35,7 +34,6 @@ const InputWithSearch = (props) => {
       </div>
 
       <input
-        onKeyDown={onKeyDown}
         disabled={disabled}
         ref={refInput}
         autoComplete='off'
@@ -53,7 +51,7 @@ const InputWithSearch = (props) => {
 InputWithSearch.propTypes = {
   refInput: func.isRequired,
   refSelect: func.isRequired,
-  onKeyDown: func.isRequired,
+  // onKeyDown: func.isRequired,
   onChange: func.isRequired,
   onClick: func.isRequired,
   value: string,

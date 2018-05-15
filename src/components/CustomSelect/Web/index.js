@@ -32,11 +32,11 @@ class WebSelect extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutside, false);
-    document.removeEventListener('keydown', this.preventOutsideScroll, false);
+    document.removeEventListener('keydown', this.onKeyDown, false);
   };
 
   componentWillMount() {
-    document.addEventListener('keydown', this.preventOutsideScroll, false);
+    document.addEventListener('keydown', this.onKeyDown, false);
     document.addEventListener('click', this.handleClickOutside, false);
   };
 
@@ -52,15 +52,6 @@ class WebSelect extends Component {
       if ( hasSelectedValue === false ) {
         handleOnChange({ value: '' })
       }
-    }
-  };
-
-  preventOutsideScroll = (event) => {
-    const { keyCode } = event;
-    const isBlockScroll = (keyCode === UP) || (keyCode === DOWN);
-
-    if (isBlockScroll ) {
-      event.preventDefault()
     }
   };
 
@@ -119,6 +110,11 @@ class WebSelect extends Component {
     const ItemsPositions = getItems(keyCode, active);
     const FocusedItem = `item${ ItemsPositions.ActiveItem }`;
     const resolveNavigation = (isUp && active > 0) || (isDown && (active) < items.length);
+    const isBlockScroll = (keyCode === UP) || (keyCode === DOWN);
+
+    if (isBlockScroll ) {
+      event.preventDefault()
+    }
 
     if ( keyCode === ESCAPE) {
       this.toggleOpen(value)
@@ -141,11 +137,11 @@ class WebSelect extends Component {
       hasScroll: items.length > itemsCount
     };
 
+
     return (
       <Collapse
         ref={(ref) => {this.Collapse = ref}}
         forceInitialAnimation={true}
-        onKeyDown={this.onKeyDown}
         springConfig={{ stiffness: 500, damping: 40 }}
         tabIndex={0}
         fixedHeight={height}
@@ -192,7 +188,6 @@ class WebSelect extends Component {
         <InputWithSearch
           refSelect={(ref) => {this.Select = ref}}
           refInput={(input) => {this.textInput = input}}
-          onKeyDown={this.onKeyDown}
           onChange={(event)=>handleOnChange(event.target.value)}
           onClick={this.onClick}
           value={variableValue}
