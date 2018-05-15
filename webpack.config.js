@@ -20,7 +20,7 @@ module.exports = {
 
   entry: [
     'react-hot-loader/patch',
-    `webpack-dev-server/client?http://${process.env.NODE_HOST || '10.10.0.161'}:${process.env.NODE_PORT || 8080}`,
+    `webpack-dev-server/client?http://${process.env.NODE_HOST || 'localhost'}:${process.env.NODE_PORT || 8080}`,
     './'
   ],
 
@@ -72,8 +72,8 @@ module.exports = {
   },
 
   devServer: {
-    host: process.env.NODE_HOST || '10.10.0.161',
-    port: process.env.NODE_PORT || 8080,
+    host: process.env.NODE_HOST ,
+    port: process.env.NODE_PORT ,
     contentBase: resolve(__dirname, 'build'),
     publicPath: '/',
     historyApiFallback: true,

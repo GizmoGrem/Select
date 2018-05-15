@@ -54,15 +54,15 @@ class WebSelect extends Component {
       }
     }
   };
+
   preventOutsideScroll = (event) => {
     const { keyCode } = event;
-    const isBlockScroll = (keyCode === UP)  || (keyCode === DOWN);
+    const isBlockScroll = (keyCode === UP) || (keyCode === DOWN);
 
     if (isBlockScroll ) {
       event.preventDefault()
     }
   };
-
 
   toggleOpen = (value) => {
     const { isOpened, disabled } = this.state;
@@ -133,7 +133,6 @@ class WebSelect extends Component {
     }
   };
 
-
   renderDesktopList(items) {
     const { dropDownDirection, isOpened } = this.state;
     const { height, itemHeight, itemsCount } = this.props;
@@ -159,6 +158,17 @@ class WebSelect extends Component {
     )
   };
 
+  HeadSelectClass = () => {
+    const { isOpened, hasSelectedValue } =this.state;
+
+    return {
+      close: !isOpened,
+      open: isOpened,
+      selected: hasSelectedValue,
+      openWithValue: hasSelectedValue && isOpened
+    }
+  };
+
   render() {
     const {
       disabled,
@@ -173,18 +183,12 @@ class WebSelect extends Component {
       placeholder,
       handleOnChange } = this.props;
 
-    const HeadSelectClass = {
-      close: !isOpened,
-      open: isOpened,
-      selected: hasSelectedValue,
-      openWithValue: hasSelectedValue && isOpened
-    };
 
     const variableValue = hasSelectedValue?value:inputValue;
 
     return (
       <div
-        className={s('', HeadSelectClass)}>
+        className={s('', this.HeadSelectClass)}>
         <InputWithSearch
           refSelect={(ref) => {this.Select = ref}}
           refInput={(input) => {this.textInput = input}}

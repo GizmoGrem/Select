@@ -8,7 +8,7 @@ Install node modules
 	
 Start the server
 
-	npm run dev
+	npm start
 
 	
 

@@ -10,7 +10,7 @@ const s = cn('SelectMobile');
 
 const MobileSelect = (props) => {
 
-  const { items, value, handleOnChange,placeholder } = props;
+  const { items, handleOnChange, value,placeholder } = props;
 
   const renderItems = (items) => {
     return items.map((value, key) => (

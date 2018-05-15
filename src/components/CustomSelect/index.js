@@ -43,11 +43,14 @@ class CustomSelect extends Component {
 
       this.setState({ inputValue: '' }, () => onSelect(value.value))
 
-    } else {
-
-      onSelect(value.target.value)
-
     }
+  };
+  MobChangeHandler = (value) => {
+
+    const { onSelect } = this.props;
+
+    onSelect(value.target.value)
+
   };
   UpdateItems = (value) => {
     const { items } = this.props;
@@ -92,7 +95,7 @@ class CustomSelect extends Component {
             value={value}
             placeholder={placeholder}
             items={transformMobileItem}
-            handleOnChange={this.onChangeHandler}
+            handleOnChange={this.MobChangeHandler}
           />
         }
       </div>

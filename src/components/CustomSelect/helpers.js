@@ -7,7 +7,7 @@ const KEY_CODE = {
   ESCAPE: 27
 };
 
-const getItems=(keyCode, defaultValue)=>{
+const getItems = (keyCode, defaultValue) => {
   const { UP, DOWN } = KEY_CODE;
   let ActiveItem, NextItem;
   if ( keyCode === DOWN ) {
@@ -23,7 +23,7 @@ const getItems=(keyCode, defaultValue)=>{
   return { ActiveItem, NextItem }
 };
 
-const getDropDownDirection=(element,maxHeight)=> {
+const getDropDownDirection = (element, maxHeight) => {
   const clientHeight = document.documentElement.clientHeight;
   const distanceToBottom = element.getBoundingClientRect().bottom;
 
